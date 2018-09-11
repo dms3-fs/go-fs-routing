@@ -5,11 +5,11 @@ import (
 	"context"
 	"testing"
 
-	cid "github.com/ipfs/go-cid"
-	ds "github.com/ipfs/go-datastore"
-	ropt "github.com/libp2p/go-libp2p-routing/options"
-	testutil "github.com/libp2p/go-testutil"
-	mh "github.com/multiformats/go-multihash"
+	cid "github.com/dms3-fs/go-cid"
+	ds "github.com/dms3-fs/go-datastore"
+	ropt "github.com/dms3-p2p/go-p2p-routing/options"
+	testutil "github.com/dms3-p2p/go-testutil"
+	mh "github.com/dms3-mft/go-multihash"
 )
 
 type blankValidator struct{}

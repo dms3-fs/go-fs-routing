@@ -5,14 +5,14 @@ import (
 	"context"
 	"errors"
 
-	cid "github.com/ipfs/go-cid"
-	ds "github.com/ipfs/go-datastore"
-	p2phost "github.com/libp2p/go-libp2p-host"
-	peer "github.com/libp2p/go-libp2p-peer"
-	pstore "github.com/libp2p/go-libp2p-peerstore"
-	record "github.com/libp2p/go-libp2p-record"
-	routing "github.com/libp2p/go-libp2p-routing"
-	ropts "github.com/libp2p/go-libp2p-routing/options"
+	cid "github.com/dms3-fs/go-cid"
+	ds "github.com/dms3-fs/go-datastore"
+	p2phost "github.com/dms3-p2p/go-p2p-host"
+	peer "github.com/dms3-p2p/go-p2p-peer"
+	pstore "github.com/dms3-p2p/go-p2p-peerstore"
+	record "github.com/dms3-p2p/go-p2p-record"
+	routing "github.com/dms3-p2p/go-p2p-routing"
+	ropts "github.com/dms3-p2p/go-p2p-routing/options"
 )
 
 type nilclient struct {
@@ -44,10 +44,10 @@ func (c *nilclient) Bootstrap(_ context.Context) error {
 	return nil
 }
 
-// ConstructNilRouting creates an IpfsRouting client which does nothing.
-func ConstructNilRouting(_ context.Context, _ p2phost.Host, _ ds.Batching, _ record.Validator) (routing.IpfsRouting, error) {
+// ConstructNilRouting creates an Dms3FsRouting client which does nothing.
+func ConstructNilRouting(_ context.Context, _ p2phost.Host, _ ds.Batching, _ record.Validator) (routing.Dms3FsRouting, error) {
 	return &nilclient{}, nil
 }
 
 //  ensure nilclient satisfies interface
-var _ routing.IpfsRouting = &nilclient{}
+var _ routing.Dms3FsRouting = &nilclient{}

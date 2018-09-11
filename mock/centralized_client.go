@@ -4,14 +4,14 @@ import (
 	"context"
 	"time"
 
-	cid "github.com/ipfs/go-cid"
-	logging "github.com/ipfs/go-log"
-	peer "github.com/libp2p/go-libp2p-peer"
-	pstore "github.com/libp2p/go-libp2p-peerstore"
-	routing "github.com/libp2p/go-libp2p-routing"
-	ropts "github.com/libp2p/go-libp2p-routing/options"
-	"github.com/libp2p/go-testutil"
-	ma "github.com/multiformats/go-multiaddr"
+	cid "github.com/dms3-fs/go-cid"
+	logging "github.com/dms3-fs/go-log"
+	peer "github.com/dms3-p2p/go-p2p-peer"
+	pstore "github.com/dms3-p2p/go-p2p-peerstore"
+	routing "github.com/dms3-p2p/go-p2p-routing"
+	ropts "github.com/dms3-p2p/go-p2p-routing/options"
+	"github.com/dms3-p2p/go-testutil"
+	ma "github.com/dms3-mft/go-multiaddr"
 )
 
 var log = logging.Logger("mockrouter")
@@ -82,4 +82,4 @@ func (c *client) Bootstrap(context.Context) error {
 	return nil
 }
 
-var _ routing.IpfsRouting = &client{}
+var _ routing.Dms3FsRouting = &client{}

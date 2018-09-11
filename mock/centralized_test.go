@@ -5,11 +5,11 @@ import (
 	"testing"
 	"time"
 
-	cid "github.com/ipfs/go-cid"
-	delay "github.com/ipfs/go-ipfs-delay"
-	u "github.com/ipfs/go-ipfs-util"
-	pstore "github.com/libp2p/go-libp2p-peerstore"
-	testutil "github.com/libp2p/go-testutil"
+	cid "github.com/dms3-fs/go-cid"
+	delay "github.com/dms3-fs/go-fs-delay"
+	u "github.com/dms3-fs/go-fs-util"
+	pstore "github.com/dms3-p2p/go-p2p-peerstore"
+	testutil "github.com/dms3-p2p/go-testutil"
 )
 
 func TestKeyNotFound(t *testing.T) {

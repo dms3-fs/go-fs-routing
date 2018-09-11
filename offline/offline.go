@@ -1,4 +1,4 @@
-// Package offline implements IpfsRouting with a client which
+// Package offline implements Dms3FsRouting with a client which
 // is only able to perform offline operations.
 package offline
 
@@ -9,32 +9,32 @@ import (
 	"time"
 
 	proto "github.com/gogo/protobuf/proto"
-	cid "github.com/ipfs/go-cid"
-	ds "github.com/ipfs/go-datastore"
-	dshelp "github.com/ipfs/go-ipfs-ds-help"
-	"github.com/libp2p/go-libp2p-peer"
-	pstore "github.com/libp2p/go-libp2p-peerstore"
-	record "github.com/libp2p/go-libp2p-record"
-	pb "github.com/libp2p/go-libp2p-record/pb"
-	routing "github.com/libp2p/go-libp2p-routing"
-	ropts "github.com/libp2p/go-libp2p-routing/options"
+	cid "github.com/dms3-fs/go-cid"
+	ds "github.com/dms3-fs/go-datastore"
+	dshelp "github.com/dms3-fs/go-fs-ds-help"
+	"github.com/dms3-p2p/go-p2p-peer"
+	pstore "github.com/dms3-p2p/go-p2p-peerstore"
+	record "github.com/dms3-p2p/go-p2p-record"
+	pb "github.com/dms3-p2p/go-p2p-record/pb"
+	routing "github.com/dms3-p2p/go-p2p-routing"
+	ropts "github.com/dms3-p2p/go-p2p-routing/options"
 )
 
 // ErrOffline is returned when trying to perform operations that
 // require connectivity.
 var ErrOffline = errors.New("routing system in offline mode")
 
-// NewOfflineRouter returns an IpfsRouting implementation which only performs
+// NewOfflineRouter returns an Dms3FsRouting implementation which only performs
 // offline operations. It allows to Put and Get signed dht
 // records to and from the local datastore.
-func NewOfflineRouter(dstore ds.Datastore, validator record.Validator) routing.IpfsRouting {
+func NewOfflineRouter(dstore ds.Datastore, validator record.Validator) routing.Dms3FsRouting {
 	return &offlineRouting{
 		datastore: dstore,
 		validator: validator,
 	}
 }
 
-// offlineRouting implements the IpfsRouting interface,
+// offlineRouting implements the Dms3FsRouting interface,
 // but only provides the capability to Put and Get signed dht
 // records to and from the local datastore.
 type offlineRouting struct {
@@ -112,5 +112,5 @@ func (c *offlineRouting) Bootstrap(context.Context) error {
 	return nil
 }
 
-// ensure offlineRouting matches the IpfsRouting interface
-var _ routing.IpfsRouting = &offlineRouting{}
+// ensure offlineRouting matches the Dms3FsRouting interface
+var _ routing.Dms3FsRouting = &offlineRouting{}
